@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="TP_TSB_2020" target="1.5" />
+      <module name="TP_TSB_2020" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
