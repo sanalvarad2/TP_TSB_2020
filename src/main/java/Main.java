@@ -8,7 +8,9 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Primera ventana");
+        primaryStage.show();
 
     }
 }
