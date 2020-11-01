@@ -16,7 +16,7 @@ import java.util.Set;
  * una Tabla Hash pero con estrategia de Direccionamiento Abierto para la
  * resolución de colisiones.
  *
- * @author Gonzalo
+ * @author Santiago
  * @param <K>
  * @param <V>
  */
@@ -83,8 +83,8 @@ public class TSB_OAHashtable<K, V> implements Map<K, V>, Cloneable, Serializable
         if (initial_capacity <= 0) {
             initial_capacity = 11;
         } else {
-            if (initial_capacity > TSB_OAHashtable.MAX_SIZE) {
-                initial_capacity = TSB_OAHashtable.MAX_SIZE;
+            if (initial_capacity > MAX_SIZE) {
+                initial_capacity = MAX_SIZE;
             } else if (!esPrimo(initial_capacity)) {
                 initial_capacity = siguientePrimo(initial_capacity);
             }
