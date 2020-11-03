@@ -1,6 +1,6 @@
 # TP_TSB_2020
 
-####Integrantes:
+#### Integrantes:
 Alumnos | Legajo | Curso
 ------- | ------ | -----
 Alvarado Ferrero, Santiago| 69574 | 3k1
