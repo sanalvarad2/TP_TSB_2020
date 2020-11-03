@@ -23,3 +23,6 @@ target/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/src/main/resources/data/descripcion_postulaciones.dsv
+/src/main/resources/data/descripcion_regiones.dsv
+/src/main/resources/data/mesas_totales_agrp_politica.dsv
