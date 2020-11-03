@@ -632,14 +632,18 @@ public class TSB_OAHashtable<K, V> implements Map<K, V>, Cloneable, Serializable
      */
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder("");
+        StringBuilder cad = new StringBuilder("[");
         for (int i = 0; i < this.table.length; i++) {
-            str.append("\nLista ")
-                    .append(i)
-                    .append(":\n\t")
-                    .append(this.table[i].toString());
+            Entry<K, V> entry = (Entry<K, V>) table[i];
+            if (entry != null) {
+                if (entry.isActive()) {
+                    cad.append(entry.toString());
+                    cad.append(" ");
+                }
+            }
         }
-        return str.toString();
+        cad.append("]");
+        return cad.toString();
     }
 
     /*
