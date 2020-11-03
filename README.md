@@ -8,7 +8,7 @@ Martinez, Juan |  | 3k1
 Muñoz, Facundo|  | 3k1
 Suso, Agustin|  | 
 
-
+#### Consignas:
  - [x] Etapa 1: Estructura de Datos:
     - [x]  Implementar una clase TSB_OAHashtable.
     - [x]  Implementar la interface Map<K, V>.
