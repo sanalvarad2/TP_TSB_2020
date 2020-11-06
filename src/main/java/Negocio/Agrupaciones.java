@@ -21,7 +21,7 @@ public class Agrupaciones {
     }
 
     public static void CargarAgrupaciones(String path){
-        Lector lector = new Lector(path + "descripcion_postulaciones.dsv");
+        Lector lector = new Lector(path + "\\descripcion_postulaciones.dsv");
         inicial = lector.CargarAgrupaciones();
     }
 
