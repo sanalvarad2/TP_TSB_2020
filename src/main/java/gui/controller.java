@@ -1,5 +1,11 @@
 package gui;
 
+import Entidades.Region;
+import Negocio.Agrupaciones;
+import Negocio.Regiones;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
@@ -28,8 +34,11 @@ public class controller {
     }
 
     public void cargarDatos(ActionEvent actionEvent) {
-        String text = lblRuta.getText();
-        if (!text.equals("...")) {
+        String ruta = lblRuta.getText();
+        if (!ruta.equals("...")) {
+            Regiones regiones = new Regiones(ruta);
+            ObservableList ol = FXCollections.observableArrayList(regiones.getRegiones());
+            cmbDistrito.setItems(ol);
             cmbDistrito.setDisable(false);
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR);
@@ -47,7 +56,11 @@ public class controller {
         cmbMesa.setValue(null);
         cmbMesa.setDisable(true);
 
-        if (cmbDistrito.getValue() != null) {
+        Region distrito = (Region) cmbDistrito.getValue();
+
+        if (distrito != null) {
+            ObservableList ol = FXCollections.observableArrayList(distrito.getSubRegiones());
+            cmbSeccion.setItems(ol);
             cmbSeccion.setDisable(false);
         }
     }
@@ -58,10 +71,12 @@ public class controller {
         cmbMesa.setValue(null);
         cmbMesa.setDisable(true);
 
-        if (cmbSeccion.getValue() != null) {
-            cmbCircuito.setDisable(false);
-        } else {
+        Region seccion = (Region) cmbSeccion.getValue();
 
+        if (seccion != null) {
+            ObservableList ol = FXCollections.observableArrayList(seccion.getSubRegiones());
+            cmbCircuito.setItems(ol);
+            cmbCircuito.setDisable(false);
         }
     }
 
@@ -69,17 +84,17 @@ public class controller {
         cmbMesa.setValue(null);
         cmbMesa.setDisable(true);
 
-        if (cmbCircuito.getValue() != null) {
-            cmbMesa.setDisable(false);
-        } else {
+        Region circuito = (Region) cmbCircuito.getValue();
 
+        if (circuito != null) {
+            ObservableList ol = FXCollections.observableArrayList(circuito.getSubRegiones());
+            cmbMesa.setItems(ol);
+            cmbMesa.setDisable(false);
         }
     }
 
     public void seleccionarMesa(ActionEvent actionEvent) {
         if (cmbMesa.getValue() != null) {
-
-        } else {
 
         }
     }

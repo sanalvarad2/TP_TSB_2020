@@ -75,15 +75,15 @@ public class Lector {
             String[] line = sc.nextLine().split("\\|");
             String codigoCategoria = line[4];
             if(codigoCategoria.compareTo("000100000000000")==0){
-                String codDistrito= line[0];
-                String codSeccion= line[1];
-                String codCircuito= line[3];
-                String codMesas = line[4];
+                String codDistrito = line[0];
+                String codSeccion = line[1];
+                String codCircuito = line[2];
+                String codMesas = line[3];
 
 
                 distrito = pais.getOrPutRegion(codDistrito);
                 seccion = distrito.getOrPutRegion(codSeccion);
-                circuito= seccion.getOrPutRegion(codCircuito);
+                circuito = seccion.getOrPutRegion(codCircuito);
                 circuito.getOrPutRegion(codMesas);
             }
 

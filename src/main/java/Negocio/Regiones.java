@@ -14,7 +14,7 @@ public class Regiones {
         lectorRegiones = new Lector(path+ "\\descripcion_regiones.dsv");
         lectorMesas = new Lector(path + "\\mesas_totales_agrp_politica.dsv");
         pais = lectorRegiones.CargarRegiones();
-        lectorMesas.cargarMesas(pais);
+        //lectorMesas.cargarMesas(pais);
 
     }
 
