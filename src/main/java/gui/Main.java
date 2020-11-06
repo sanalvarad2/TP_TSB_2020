@@ -19,11 +19,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         scene = new Scene(loadFXML("main"));
+        stage.setTitle("Elecciones primarias del año 2019");
+        stage.setMinWidth(600);
+        stage.setMinHeight(650);
         stage.setScene(scene);
         stage.show();
-
-
     }
+
     static void setRoot(String fxml) throws IOException{
         scene.setRoot(loadFXML(fxml));
     }
