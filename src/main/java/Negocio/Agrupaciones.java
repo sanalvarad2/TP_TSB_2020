@@ -14,7 +14,7 @@ public class Agrupaciones {
         this.agrupaciones = new TSB_OAHashtable();
         for (Object o: inicial.values() ) {
             Agrupacion a = (Agrupacion) o;
-            Agrupacion newAgrup = new Agrupacion(a.getCodigoCategoria(), a.getNombreCategoria(), a.getCodigoAgrupacion(),a.getNombreAgrupacion(),a.getCodigoLista(),a.getNombreLista());
+            Agrupacion newAgrup = new Agrupacion(a.getCodigoCategoria(), a.getNombreCategoria(), a.getCodigoAgrupacion(),a.getNombreAgrupacion());
 
             agrupaciones.put(a.getCodigo(), newAgrup);
         }
