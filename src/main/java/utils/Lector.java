@@ -2,6 +2,7 @@ package utils;
 
 import Entidades.Agrupacion;
 import Entidades.Region;
+import Negocio.Resultados;
 import oahashtable.TSB_OAHashtable;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,7 +18,7 @@ public class Lector {
             sc = new Scanner(text);
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("No se pudo cargar el archivo: " + path);
         }
     }
 
@@ -29,7 +30,7 @@ public class Lector {
             String codigo = line[0];
            if(codigo.compareTo("000100000000000")==0){
                String nombre_categoria = line[1]; //1
-               int codigo_agrupacion = Integer.parseInt(line[2]); //2
+               String codigo_agrupacion = line[2]; //2
                String nombre_agrupacion = line[3]; //3
                Agrupacion agr = new Agrupacion(codigo,nombre_categoria, codigo_agrupacion, nombre_agrupacion);
                tabla.put(codigo_agrupacion, agr);
@@ -69,4 +70,20 @@ public class Lector {
     }
 
 
+    public void sumarVotos(Resultados resultados) {
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split("\\|");
+            if(line[4].compareTo("000100000000000")==0){
+                String codAgrupacion = line[5];
+                int votos = Integer.parseInt(line[6]);
+
+                resultados.contarVotosPorRegion("00",codAgrupacion, votos);
+
+                for (int i = 0; i < 4; i++) {
+                    resultados.contarVotosPorRegion(line[i], codAgrupacion,votos);
+                }
+            }
+
+        }
+    }
 }

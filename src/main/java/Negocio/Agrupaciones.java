@@ -25,6 +25,10 @@ public class Agrupaciones {
         inicial = lector.CargarAgrupaciones();
     }
 
+    public Agrupacion getAgrupacion(String codigoAgr){
+        return (Agrupacion) agrupaciones.get(codigoAgr);
+    }
+
     public Collection getResultados(){
         return agrupaciones.values();
     }

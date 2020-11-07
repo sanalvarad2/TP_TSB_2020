@@ -5,7 +5,7 @@ public class Agrupacion {
 
     private String codigo_categoria; //0
     private String nombre_categoria; //1
-    private int codigo_agrupacion; //2
+    private String codigo_agrupacion; //2
     private String nombre_agrupacion; //3
 
     private int votos;
@@ -14,7 +14,7 @@ public class Agrupacion {
         votos = 0;
     }
 
-    public Agrupacion(String codigo_categoria, String nombre_categoria, int codigo_agrupacion, String nombre_agrupacion) {
+    public Agrupacion(String codigo_categoria, String nombre_categoria, String codigo_agrupacion, String nombre_agrupacion) {
         this.codigo_categoria = codigo_categoria;
         this.nombre_categoria = nombre_categoria;
         this.codigo_agrupacion = codigo_agrupacion;
@@ -30,7 +30,7 @@ public class Agrupacion {
         return nombre_categoria;
     }
 
-    public int getCodigoAgrupacion() {
+    public String getCodigoAgrupacion() {
         return codigo_agrupacion;
     }
 
@@ -38,7 +38,7 @@ public class Agrupacion {
         return nombre_agrupacion;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo_agrupacion;
     }
 
@@ -48,6 +48,6 @@ public class Agrupacion {
     }
 
     public void AgregarVotos(int votos){
-        this.votos = this.votos + votos;
+        this.votos += votos;
     }
 }
