@@ -39,6 +39,13 @@ public class Region  {
         return (Region) subRegiones.get(codigo);
     }
 
+    public void putIfnotExists(String codigo){
+        Region region = (Region) subRegiones.get(codigo);
+        if(region == null){
+            subRegiones.put(codigo, new Region(codigo, ""));
+        }
+    }
+
     @Override
     public String toString() {
         return "("+ codigo+ ") " + nombre;
