@@ -25,7 +25,7 @@ Suso, Agustin|  |
     - [x] Implementar un proceso que cargue en memoria las regiones y sus descripciones.
     - [x] Implementar un proceso que realice el conteo en cascada (conteo total, conteo por distrito,
           conteo por sección, conteo por circuito y finalmente los resultados de la mesa).
-    - [ ] Revisar el rendimiento de la carga de datos.
+    - [x] Revisar el rendimiento de la carga de datos.
  - [x] Etapa 3: Interfaz de usuario:
     - [x] Implementar la interfaz que de respuesta al modelo descripto.
     - [x] Prototipo y definiciones
