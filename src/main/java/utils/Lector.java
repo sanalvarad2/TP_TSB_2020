@@ -6,7 +6,6 @@ import Negocio.Resultados;
 import oahashtable.TSB_OAHashtable;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lector {
@@ -29,10 +28,9 @@ public class Lector {
 
             String codigo = line[0];
            if(codigo.compareTo("000100000000000")==0){
-               String nombre_categoria = line[1]; //1
                String codigo_agrupacion = line[2]; //2
                String nombre_agrupacion = line[3]; //3
-               Agrupacion agr = new Agrupacion(codigo,nombre_categoria, codigo_agrupacion, nombre_agrupacion);
+               Agrupacion agr = new Agrupacion(codigo_agrupacion, nombre_agrupacion);
                tabla.put(codigo_agrupacion, agr);
 
            }

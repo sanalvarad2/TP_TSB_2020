@@ -709,7 +709,7 @@ public class TSB_OAHashtable<K, V> implements Map<K, V>, Cloneable, Serializable
 
         // Paso 5)
         putAll(t);
-        //System.out.println("rehashing.....");
+        System.out.println("rehashing.....");
 
     }
 
