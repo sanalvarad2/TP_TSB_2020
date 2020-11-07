@@ -13,6 +13,10 @@ import java.util.*;
  * @param <K> el tipo de los objetos que serán usados como clave en la tabla.
  * @param <V> el tipo de los objetos que serán los valores de la tabla.
  */
+
+/*
+ *
+ */
 public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
 {
     //************************ Constantes (privadas o públicas).
@@ -313,7 +317,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
     {
         if(keySet == null)
         {
-            // keySet = Collections.synchronizedSet(new KeySet());
             keySet = new KeySet();
         }
         return keySet;
@@ -342,7 +345,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
     {
         if(values==null)
         {
-            // values = Collections.synchronizedCollection(new ValueCollection());
             values = new ValueCollection();
         }
         return values;
@@ -370,7 +372,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
     {
         if(entrySet == null)
         {
-            // entrySet = Collections.synchronizedSet(new EntrySet());
             entrySet = new EntrySet();
         }
         return entrySet;
@@ -420,16 +421,15 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
 
         try
         {
-            Iterator<Map.Entry<K,V>> i = this.entrySet().iterator();
-            while(i.hasNext())
-            {
-                Map.Entry<K, V> e = i.next();
+            for (Map.Entry<K, V> e : this.entrySet()) {
                 K key = e.getKey();
                 V value = e.getValue();
-                if(t.get(key) == null) { return false; }
-                else
-                {
-                    if(!value.equals(t.get(key))) { return false; }
+                if (t.get(key) == null) {
+                    return false;
+                } else {
+                    if (!value.equals(t.get(key))) {
+                        return false;
+                    }
                 }
             }
         }
@@ -495,11 +495,8 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
     {
         if(value == null) return false;
         this.values();
-        Iterator<V> it = values.iterator();
-        while(it.hasNext())
-        {
-            V entry = it.next();
-            if(value.equals(entry)) return true;
+        for (V val : values) {
+            if (value.equals(val)) return true;
         }
 
         return false;
@@ -764,7 +761,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
     }
 
 
-    /*
+    /**
      * Clase interna que representa una vista de todas los Claves mapeadas en la
      * tabla: si la vista cambia, cambia también la tabla que le da respaldo, y
      * viceversa. La vista es stateless: no mantiene estado alguno (es decir, no
@@ -822,8 +819,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
              */
             public KeySetIterator()
             {
-                // HACER...
-                last = 0;
+                last = -1;
                 current = -1;
                 next_ok = false;
                 expected_modCount = TSB_OAHashtable.this.modCount;
@@ -857,8 +853,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public K next()
             {
-                // REVISAR Y HACER...
-
                 // control: fail-fast iterator...
                 if(TSB_OAHashtable.this.modCount != expected_modCount)
                 {
@@ -890,8 +884,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public void remove()
             {
-                // REVISAR Y HACER...
-
                 if(!next_ok)
                 {
                     throw new IllegalStateException("remove(): debe invocar a next() antes de remove()...");
@@ -911,7 +903,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
         }
     }
 
-    /*
+    /**
      * Clase interna que representa una vista de todos los PARES mapeados en la
      * tabla: si la vista cambia, cambia también la tabla que le da respaldo, y
      * viceversa. La vista es stateless: no mantiene estado alguno (es decir, no
@@ -937,7 +929,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
         @Override
         public boolean contains(Object o)
         {
-            // HACER...
+
             if(o == null) { return false; }
             if(!(o instanceof Entry)) { return false; }
 
@@ -955,7 +947,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
         @Override
         public boolean remove(Object o)
         {
-            // HACER...
             if(o == null) { throw new NullPointerException("remove(): parámetro null");}
             if(!(o instanceof Entry)) { return false; }
 
@@ -986,7 +977,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
 
         private class EntrySetIterator implements Iterator<Map.Entry<K, V>>
         {
-            // REVISAR y HACER... Agregar los atributos que necesiten...
+            // Agregar los atributos que necesiten...
 
             // flag para controlar si remove() está bien invocado...
             private boolean next_ok;
@@ -1002,8 +993,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
              */
             public EntrySetIterator()
             {
-                // HACER...
-                last = 0;
+                last = -1;
                 current = -1;
                 next_ok = false;
                 expected_modCount = TSB_OAHashtable.this.modCount;
@@ -1016,7 +1006,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public boolean hasNext()
             {
-                // HACER...
 
                 Entry<K, V> t[] = (Entry<K, V>[]) TSB_OAHashtable.this.table;
 
@@ -1038,7 +1027,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public Map.Entry<K, V> next()
             {
-                //HACER...
 
                 // control: fail-fast iterator...
                 if(TSB_OAHashtable.this.modCount != expected_modCount)
@@ -1073,8 +1061,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public void remove()
             {
-                // HACER...
-
                 if(!next_ok)
                 {
                     throw new IllegalStateException("remove(): debe invocar a next() antes de remove()...");
@@ -1095,7 +1081,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
         }
     }
 
-    /*
+    /**
      * Clase interna que representa una vista de todos los VALORES mapeados en
      * la tabla: si la vista cambia, cambia también la tabla que le da respaldo,
      * y viceversa. La vista es stateless: no mantiene estado alguno (es decir,
@@ -1149,7 +1135,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
              */
             public ValueCollectionIterator()
             {
-                // HACER...
                 last = -1;
                 current = -1;
                 next_ok = false;
@@ -1163,7 +1148,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public boolean hasNext()
             {
-                // HACER...
                 Entry<K, V> t[] = (Entry<K, V>[]) TSB_OAHashtable.this.table;
 
                 if(TSB_OAHashtable.this.isEmpty()) { return false; }
@@ -1172,7 +1156,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
                 int next = current + 1;
 
                 for (int i = next ; i < t.length; i++) {
-                    if((t[i]).state == TSB_OAHashtable.CLOSED)
+                    if((t[i]).getState() == CLOSED)
                         return true;
                 }
                 return false;
@@ -1184,7 +1168,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public V next()
             {
-                // HACER...
 
                 // control: fail-fast iterator...
                 if(TSB_OAHashtable.this.modCount != expected_modCount)
@@ -1196,9 +1179,10 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
                 {
                     throw new NoSuchElementException("next(): no existe el elemento pedido...");
                 }
+
                 int next = current;
                 Entry<K, V> t[] = (Entry<K, V>[]) TSB_OAHashtable.this.table;
-                for (next++ ; ((Entry<K, V>)t[next]).state != TSB_OAHashtable.CLOSED; next++);
+                for (next++ ; ((Entry<K, V>)t[next]).getState() != CLOSED; next++);
 
                 last = current;
                 current = next;
@@ -1220,7 +1204,6 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public void remove()
             {
-                // HACER...
 
                 if(!next_ok)
                 {
@@ -1232,7 +1215,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
                 // avisar que el remove() válido para next() ya se activó...
                 next_ok = false;
 
-                // la tabla tiene un elementon menos...
+                // la tabla tiene un elemento menos...
                 TSB_OAHashtable.this.count--;
 
                 // fail_fast iterator...
