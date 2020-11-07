@@ -19,15 +19,16 @@ Suso, Agustin|  |
            y toString().
     - [x]  Definir en la clase TSB_OAHashtable los métodos rehash() y contains(value).
     
- - [ ] Etapa 2: Procesar Archivos:
-    - [ ] Implementar el proceso que cargue en memoria las agrupaciones políticas del archivo
+ - [x] Etapa 2: Procesar Archivos:
+    - [x] Implementar el proceso que cargue en memoria las agrupaciones políticas del archivo
            descripcion_postulaciones.dsv
-    - [ ] Implementar un proceso que cargue en memoria las regiones y sus descripciones.
+    - [x] Implementar un proceso que cargue en memoria las regiones y sus descripciones.
     - [ ] Implementar un proceso que realice el conteo en cascada (conteo total, conteo por distrito,
           conteo por sección, conteo por circuito y finalmente los resultados de la mesa).
- - [ ] Etapa 3: Interfaz de usuario:
-    - [ ] Implementar la interfaz que de respuesta al modelo descripto.
-    - [ ] Prototipo y definiciones
+    - [ ] Revisar el rendimiento de la carga de datos.
+ - [x] Etapa 3: Interfaz de usuario:
+    - [x] Implementar la interfaz que de respuesta al modelo descripto.
+    - [x] Prototipo y definiciones
  - [ ] Etapa 4: Almacenamiento en DB:
     - [ ] Almacenar los datos luego de procesado en una base de datos.
     - [ ] Cargar los datos de una base de datos al iniciar la aplicación.
