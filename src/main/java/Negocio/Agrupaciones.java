@@ -16,7 +16,7 @@ public class Agrupaciones {
             Agrupacion a = (Agrupacion) o;
             Agrupacion newAgrup = new Agrupacion(a.getCodigoAgrupacion(),a.getNombreAgrupacion());
 
-            agrupaciones.put(a.getCodigo(), newAgrup);
+            agrupaciones.put(newAgrup.getCodigo(), newAgrup);
         }
     }
 

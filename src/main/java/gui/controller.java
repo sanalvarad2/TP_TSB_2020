@@ -4,14 +4,19 @@ import Entidades.Region;
 import Negocio.Agrupaciones;
 import Negocio.Regiones;
 import Negocio.Resultados;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.*;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.DirectoryChooser;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class controller {
 
@@ -22,6 +27,15 @@ public class controller {
     public ComboBox cmbMesa;
     public ListView lvwResultados;
     private Resultados resultados;
+
+    @FXML
+    public void initialize(){
+        Path currentRelativePath = Paths.get("./src/main/resources/data");
+        lblRuta.setText(currentRelativePath.toAbsolutePath().toString());
+
+    }
+
+
 
     public void seleccionarRuta(ActionEvent actionEvent) {
         DirectoryChooser dc = new DirectoryChooser();
@@ -110,8 +124,12 @@ public class controller {
     }
 
     public void seleccionarMesa(ActionEvent actionEvent) {
+        Region seccion = (Region) cmbMesa.getValue();
         if (cmbMesa.getValue() != null) {
-
+            ObservableList ol1 = FXCollections.observableArrayList(resultados.getResultadosPorRegion(seccion.getCodigo()));
+            lvwResultados.setItems(ol1);
         }
     }
+
+
 }

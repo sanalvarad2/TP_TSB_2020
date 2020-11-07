@@ -38,6 +38,19 @@ public class Lector {
         return tabla;
     }
 
+    public void CargarMesas(Region pais){
+        Region distrito, seccion, circuito;
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split("\\|");
+            if(line[4].compareTo("000100000000000")==0){
+                distrito = pais.getOrPutRegion(line[0]);
+                seccion = distrito.getOrPutRegion(line[1]);
+                circuito = seccion.getOrPutRegion(line[2]);
+                circuito.putIfnotExists(line[3]);
+            }
+        }
+    }
+
     public Region CargarRegiones(){
         Region distrito, seccion, circuito;
         Region pais = new Region("00", "Argentina");
