@@ -23,7 +23,7 @@ Suso, Agustin|  |
     - [x] Implementar el proceso que cargue en memoria las agrupaciones políticas del archivo
            descripcion_postulaciones.dsv
     - [x] Implementar un proceso que cargue en memoria las regiones y sus descripciones.
-    - [ ] Implementar un proceso que realice el conteo en cascada (conteo total, conteo por distrito,
+    - [x] Implementar un proceso que realice el conteo en cascada (conteo total, conteo por distrito,
           conteo por sección, conteo por circuito y finalmente los resultados de la mesa).
     - [ ] Revisar el rendimiento de la carga de datos.
  - [x] Etapa 3: Interfaz de usuario:
