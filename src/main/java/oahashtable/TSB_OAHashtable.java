@@ -187,7 +187,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
     @Override
     public V get(Object key)
     {
-        // HACER...
+        // ...
         if(key == null) throw new NullPointerException("get(): parámetro null");
         int ik = this.h((K)key);
         V valor = null;
@@ -832,7 +832,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
             @Override
             public boolean hasNext()
             {
-                // HACER...
+                // ...
                 Entry<K, V> t[] = (Entry<K, V>[]) TSB_OAHashtable.this.table;
 
                 if(TSB_OAHashtable.this.isEmpty()) { return false; }
@@ -1119,7 +1119,7 @@ public class TSB_OAHashtable<K,V> implements Map<K,V>, Cloneable, Serializable
 
         private class ValueCollectionIterator implements Iterator<V>
         {
-            // REVISAR y HACER... Agregar los atributos que necesiten...
+            // REVISAR y ... Agregar los atributos que necesiten...
 
             // flag para controlar si remove() está bien invocado...
             private boolean next_ok;
