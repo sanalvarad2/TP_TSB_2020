@@ -7,17 +7,18 @@ import java.util.Collection;
 
 public class Regiones {
     private Lector lectorRegiones;
-    private Lector lectorMesas;
     private Region pais;
 
     public Regiones(String path) {
         lectorRegiones = new Lector(path+ "\\descripcion_regiones.dsv");
-        lectorMesas = new Lector(path + "\\mesas_totales_agrp_politica.dsv");
         pais = lectorRegiones.CargarRegiones();
-        lectorMesas.CargarMesas(pais);
     }
 
     public Collection getRegiones(){
         return pais.getSubRegiones();
+    }
+
+    public Region getPais(){
+        return pais;
     }
 }

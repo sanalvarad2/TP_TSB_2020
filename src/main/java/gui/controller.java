@@ -62,7 +62,7 @@ public class controller {
         if (!ruta.equals("...")) {
             Regiones regiones = new Regiones(ruta);
             Agrupaciones.CargarAgrupaciones(ruta);
-            resultados = new Resultados(ruta);
+            resultados = new Resultados(ruta, regiones.getPais());
 
             ObservableList ol = FXCollections.observableArrayList(regiones.getRegiones());
             ol.sort(comp);

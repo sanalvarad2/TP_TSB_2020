@@ -38,17 +38,13 @@ public class Lector {
         return tabla;
     }
 
-    public void CargarMesas(Region pais){
+    private void CargarMesa(Region pais, String codDistrito, String codSeccion, String codCircuito, String codMesa){
         Region distrito, seccion, circuito;
-        while (sc.hasNextLine()) {
-            String[] line = sc.nextLine().split("\\|");
-            if(line[4].compareTo("000100000000000")==0){
-                distrito = pais.getOrPutRegion(line[0]);
-                seccion = distrito.getOrPutRegion(line[1]);
-                circuito = seccion.getOrPutRegion(line[2]);
-                circuito.putIfnotExists(line[3]);
-            }
-        }
+        distrito = pais.getOrPutRegion(codDistrito);
+        seccion = distrito.getOrPutRegion(codSeccion);
+        circuito = seccion.getOrPutRegion(codCircuito);
+        circuito.putIfnotExists(codMesa);
+
     }
 
     public Region CargarRegiones(){
@@ -81,13 +77,15 @@ public class Lector {
     }
 
 
-    public void sumarVotos(Resultados resultados) {
+    public void sumarVotos(Resultados resultados, Region pais) {
         while (sc.hasNextLine()) {
             String[] line = sc.nextLine().split("\\|");
             if(line[4].compareTo("000100000000000")==0){
                 String codAgrupacion = line[5];
                 int votos = Integer.parseInt(line[6]);
 
+
+                CargarMesa(pais, line[0], line[1], line[2], line[3]);
                 resultados.contarVotosPorRegion("00",codAgrupacion, votos);
 
                 for (int i = 0; i < 4; i++) {

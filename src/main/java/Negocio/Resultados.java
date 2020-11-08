@@ -1,6 +1,7 @@
 package Negocio;
 
 import Entidades.Agrupacion;
+import Entidades.Region;
 import oahashtable.TSB_OAHashtable;
 import utils.Lector;
 
@@ -9,10 +10,10 @@ import java.util.Collection;
 public class Resultados {
     private TSB_OAHashtable tablaResultados;
 
-    public Resultados(String path) {
+    public Resultados(String path, Region pais) {
         tablaResultados = new TSB_OAHashtable();
         Lector archivoMesas = new Lector(path + "\\mesas_totales_agrp_politica.dsv");
-        archivoMesas.sumarVotos(this);
+        archivoMesas.sumarVotos(this, pais);
     }
 
     public void contarVotosPorRegion(String codRegion, String codAgrupacion, int  votos){
