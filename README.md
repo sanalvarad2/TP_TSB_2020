@@ -4,7 +4,7 @@
 Alumnos | Legajo | Curso
 ------- | ------ | -----
 Alvarado Ferrero, Santiago| 69574 | 3k1
-Martinez, Juan |  | 3k1
+Martinez, Juan |69890 | 3k1
 Muñoz, Facundo| 70360 | 3k1
 Suso, Agustin| 68629|3K4
 
