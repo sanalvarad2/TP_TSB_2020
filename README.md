@@ -1,5 +1,8 @@
 # TP_TSB_2020
 
+#### Importante:
+   ##### Extraer el archivo "resultados-provisorios-paso-2019 (1)" dentro de la carpeta src/main/resources/data
+
 #### Integrantes:
 Alumnos | Legajo | Curso
 ------- | ------ | -----
