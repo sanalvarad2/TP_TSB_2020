@@ -6,10 +6,10 @@
 #### Integrantes:
 Alumnos | Legajo | Curso
 ------- | ------ | -----
-Alvarado Ferrero, Santiago| 69574 | 3k1
-Martinez, Juan |69890 | 3k1
-Muñoz, Facundo| 70360 | 3k1
-Suso, Agustin| 68629|3K4
+Alvarado Ferrero, Santiago | 69574 | 3K1
+Martinez, Juan | 69890 | 3K1
+Muñoz, Facundo | 70360 | 3K1
+Suso, Agustin | 68629 | 3K4
 
 #### Consignas:
  - [x] Etapa 1: Estructura de Datos:
@@ -32,6 +32,3 @@ Suso, Agustin| 68629|3K4
  - [x] Etapa 3: Interfaz de usuario:
     - [x] Implementar la interfaz que de respuesta al modelo descripto.
     - [x] Prototipo y definiciones
- - [ ] Etapa 4: Almacenamiento en DB:
-    - [ ] Almacenar los datos luego de procesado en una base de datos.
-    - [ ] Cargar los datos de una base de datos al iniciar la aplicación.
